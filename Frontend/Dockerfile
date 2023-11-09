@@ -1,10 +1,12 @@
 FROM node:20.8.1
 
-WORKDIR /app
+WORKDIR /app/Frontend
 
 # COPY ./build /app
 
-COPY ./package.json /app
+# COPY ./package.json /app
+
+COPY . /app/Frontend/
 
 RUN npm install ci
 

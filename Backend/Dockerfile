@@ -1,6 +1,7 @@
 FROM python:3.11-alpine
 
 RUN apk --no-cache add postgresql-client
+RUN apk --no-cache add curl
 # Instalar gunicorn utilizando pip
 # RUN pip install gunicorn
 

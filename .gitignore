@@ -7,9 +7,6 @@ __pycache__/
 *.pyd
 *.db.sqlite3
 
-# Ignorar archivos de migraciones de Django
-**/migrations/
-
 # Ignorar archivos de base de datos
 *.db
 
