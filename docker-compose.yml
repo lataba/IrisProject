@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  backend:
+    build:
+      context: backend
+    command: >
+      python manage.py runserver 0.0.0.0:8000
+
+  frontend:
+    build:
+      context: frontend
+    command: npm run dev
+# O el comando específico para iniciar el servidor de desarrollo de SvelteKit
+
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=iris
+      - POSTGRES_PASSWORD=irispassword
+      - POSTGRES_DB=irisdb
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
