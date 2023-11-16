@@ -1,6 +1,7 @@
 <script>
   import PublicFooter from "../../components/publicFooter.svelte";
   import PublicHeader from "../../components/publicHeader.svelte";
+  import { goto } from "$app/navigation";
 
   let name = "",
     email = "",
@@ -21,9 +22,9 @@
     if (response.ok) {
       const data = await response.json();
       localStorage.setItem("token", data.token);
-      return true;
+      goto("/registro/registroEmpresa");
     } else {
-      return false;
+      alert("Error al crear el usuario");
     }
   }
 </script>

@@ -18,7 +18,7 @@
               rgba(255, 255, 255, 0.5),
               rgba(255, 255, 255, 0.5)
           ),
-          url("../asset/portada-peluqueria.jpg");
+          url("../asset/banner_hugo.png");
       background-size: cover;
       background-position: center;
       color: black;

@@ -12,6 +12,7 @@ class UserAccountManager(BaseUserManager):
         user.set_password(password)
         user.save(using=self._db)
         return user
+
 class UserAccounts(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=255, unique=True)
     name = models.CharField(max_length=255)
@@ -28,7 +29,7 @@ def __str__(self):
     return self.email
 
 def default_time():
-    return {"08:00": True, "08:30": True, "09:00": True, "09:30": True, "10:00": True, "10:30": True, "11:00": True, "11:30": True, "12:00": True, "12:30": True, "13:00": False, "13:30": False, "14:00": True, "14:30": True, "15:00": True, "15:30": True, "16:00": True, "16:30": True, "17:00": True, "17:30": True, "18:00": True}
+    return {"08:00": "08:00", "08:30": "08:30", "09:00": "09:00", "09:30": "09:30", "10:00": "10:00", "10:30": "10:30", "11:00": "11:00", "11:30": "11:30", "12:00": "12:00", "12:30": "12:30", "13:00": "13:00", "13:30": "13:30", "14:00": "14:00", "14:30": "14:30", "15:00": "15:00", "15:30": "15:30", "16:00": "16:00", "16:30": "16:30", "17:00": "17:00", "17:30": "17:30", "18:00": "18:00"}
 class Business_Data(models.Model):
     id = models.AutoField(primary_key=True)
     id_user = models.ForeignKey(UserAccounts, on_delete=models.CASCADE)
@@ -40,7 +41,6 @@ class Business_Data(models.Model):
     opening_hours = models.TimeField(default='08:00')
     closing_hours = models.TimeField(default='18:00')
     time_range = models.JSONField(default=default_time)
-        
     def __str__(self):
         return self.name_business
 
@@ -53,6 +53,7 @@ class CollaboratorAccountManager(BaseUserManager):
         collaborator.set_password(password)
         collaborator.save(using=self._db)
         return collaborator
+
 class CollaboratorAccounts(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=255, unique=True)
     id_business_data = models.ForeignKey(Business_Data, on_delete=models.CASCADE)
@@ -77,6 +78,7 @@ class CollaboratorAccounts(AbstractBaseUser, PermissionsMixin):
         help_text='Specific permissions for this collaborator.',
         verbose_name='user permissions',
     )
+
     def save(self, *args, **kwargs):
         created = not self.pk
         super(CollaboratorAccounts, self).save(*args, **kwargs)
@@ -135,3 +137,4 @@ class Appointment(models.Model):
     phone = models.CharField(max_length=100, default='')
     def __str__(self):
         return f"Appointment {self.id}"
+    

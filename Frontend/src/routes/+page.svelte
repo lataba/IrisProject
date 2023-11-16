@@ -1,12 +1,14 @@
 <!-- Home page -->
 <script>
   import calendarImg from "../asset/calendarImg.png";
-  import businessImg from "../asset/business.png";
   import collab2 from "../asset/manCollab.png";
   import collab3 from "../asset/womenCollab.png";
   import PublicFooter from "../components/publicFooter.svelte";
   import PublicHeader from "../components/publicHeader.svelte";
 </script>
+<svelte:head>
+  <title>Iris</title>
+</svelte:head>
 
 <PublicHeader />
 

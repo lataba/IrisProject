@@ -3,7 +3,7 @@ FROM python:3.11-alpine
 RUN apk --no-cache add postgresql-client
 RUN apk --no-cache add curl
 # Instalar gunicorn utilizando pip
-# RUN pip install gunicorn
+RUN pip install gunicorn
 
 WORKDIR /app/Backend
 
@@ -13,3 +13,5 @@ RUN pip install -r ./requirements.txt
 COPY . /app/Backend/
 
 EXPOSE 8000
+
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "Iris.wsgi:application"]

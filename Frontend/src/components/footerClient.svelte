@@ -1,10 +1,6 @@
 <div>
   <footer>
-      <p>Información de tu footer aquí</p>
-      <p>
-          Puedes incluir detalles de contacto, enlaces, información adicional,
-          etc.
-      </p>
+      <p>Iris-mvp.com</p>
   </footer>
 </div>
 

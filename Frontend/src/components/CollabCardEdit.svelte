@@ -1,4 +1,7 @@
 <script>
+  import EditPen from '../asset/EditPen.png';
+
+
   let isModalOpen = false;
   let formData = {
     name: '',
@@ -20,20 +23,16 @@
     isModalOpen = false;
   }
 
-  function openModal() {
-    isModalOpen = true;
-  }
-
-  function closeModal() {
-    isModalOpen = false;
+  function handleClick() {
+    isModalOpen = !isModalOpen;
   }
 </script>
 
 <button 
-  class="rounded bg-orange-500 border-black border-r-1" 
-  on:click={openModal}
+class="rounded border-black border-r-1" 
+on:click={handleClick}
 >
-  EDIT
+  <img src={EditPen} alt="DeleteBin" class='h-9' />
 </button>
 
 {#if isModalOpen}
@@ -78,7 +77,7 @@
           </button>
         </form>
         <div class="justify-center items-center px-20 py-4">
-          <button on:click={closeModal} class="underline text-blue-500">
+          <button on:click={handleClick} class="underline text-blue-500">
             Cancelar
           </button>
         </div>

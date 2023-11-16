@@ -1,0 +1,1 @@
+export { default as component } from "../../../../src/routes/negocio/[slug]/enlace/+page.svelte";

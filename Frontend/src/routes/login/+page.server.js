@@ -1,43 +1,53 @@
-import { getUserDetails } from "../../hooks/auth";
-import { store } from "../../hooks/auth";
-
-/** @type {import('./$types').Actions} */
+import { loginUser } from "../../hooks/auth";
+import { store as serverStore } from "../../hooks/auth";
 export const actions = {
   default: async (event) => {
-    const data = new FormData(event.currentTarget);
-    
+    // Obtener datos del formulario
+    const data = new FormData(event.body);
     const email = data.get("email");
     const password = data.get("password");
-
-    const user = await getUserDetails(email, password);
-
+    // Obtener detalles del usuario
+    const { data: user, response } = await loginUser(email, password);
+    // Inicializar variable de error
+    let error = "";
+    // Manejar la respuesta del servidor
     if (user) {
-      console.log("Usuario:", user);
-      store.set(user);
-      store.subscribe((value) => {
-        console.log(value);
-      });
+      serverStore.set(user);
+      console.log("Server store:", serverStore);
+      // Limpiar error si existe
       if (error) {
         error = "";
       }
     } else {
       error = "Usuario o contraseña incorrectos";
-      console.log("Usuario o contraseña incorrectos");
     }
-
-    event.cookies.set('refreshToken', user.refresh, {
+    // Manejar otras operaciones relacionadas con el éxito, si es necesario
+    if (response.ok) {
+      // Puedes realizar acciones adicionales para el éxito aquí
+      // Por ejemplo, redirigir a otra página
+      return {
+        status: 302, // Código de redirección
+        headers: {
+          location: "/negocios", // Página a la que redirigir
+        },
+      };
+    }
+    // Borrar la cookie del token de autenticación si la autenticación falla
+    event.cookies.set("auth_token", "", {
       httpOnly: true,
-      sameSite: 'strict',
+      sameSite: "strict",
       secure: false,
-      path: '/',
-      maxAge: 60 * 60 * 24 * 7
+      path: "/",
+      maxAge: 0,
     });
-    event.cookies.set('accessToken', user.access, {
-      httpOnly: true,
-      sameSite: 'strict',
-      secure: false,
-      path: '/',
-      maxAge: 60 * 60 * 24 * 7
-    });
-  }
+    console.log("Cookies:", event.cookies);
+    // Retornar la respuesta del servidor (por ejemplo, mostrar el error en la página)
+    return {
+      body: JSON.stringify({ error: "Usuario o contraseña incorrectos" }),
+      status: 401, // Código de no autorizado
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+  },
 };
