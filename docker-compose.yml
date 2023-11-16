@@ -4,20 +4,23 @@ services:
   backend:
     build:
       context: backend
-#    command: >
-#     python manage.py runserver 0.0.0.0:8000
-    command: >
-      "gunicorn iris.wsgi -b 0.0.0.0:8000 -w 2"
+    command:
+      - gunicorn
+      - "Iris.wsgi:application"
+      - "-b"
+      - "0.0.0.0:8000"
+      - "-w"
+      - "2"
     depends_on:
       - db
 
   frontend:
     build:
       context: frontend
-#   command: npm run dev
 # O el comando específico para iniciar el servidor de desarrollo de SvelteKit
-    command: >
-      "node index.js"
+    command: node index.js
+    depends_on:
+      - nginx
 
   db:
     image: postgres:latest
