@@ -14,10 +14,10 @@ services:
   frontend:
     build:
       context: frontend
- #   command: npm run dev
+#   command: npm run dev
 # O el comando específico para iniciar el servidor de desarrollo de SvelteKit
-      command: >
-        "node index.js"
+    command: >
+      "node index.js"
 
   db:
     image: postgres:latest
