@@ -1,0 +1,115 @@
+{
+  ".svelte-kit/generated/server/internal.js": {
+    "file": "internal.js",
+    "imports": [
+      "_internal.js"
+    ],
+    "isEntry": true,
+    "src": ".svelte-kit/generated/server/internal.js"
+  },
+  "_internal.js": {
+    "file": "chunks/internal.js",
+    "imports": [
+      "_ssr.js"
+    ]
+  },
+  "_ssr.js": {
+    "file": "chunks/ssr.js"
+  },
+  "node_modules/@sveltejs/kit/src/runtime/components/error.svelte": {
+    "file": "entries/fallbacks/error.svelte.js",
+    "imports": [
+      "_ssr.js"
+    ],
+    "isEntry": true,
+    "src": "node_modules/@sveltejs/kit/src/runtime/components/error.svelte"
+  },
+  "node_modules/@sveltejs/kit/src/runtime/server/index.js": {
+    "file": "index.js",
+    "imports": [
+      "_internal.js",
+      "_ssr.js"
+    ],
+    "isEntry": true,
+    "src": "node_modules/@sveltejs/kit/src/runtime/server/index.js"
+  },
+  "src/lib/images/Aldo.jpg": {
+    "file": "_app/immutable/assets/Aldo.pQtZHsqn.jpg",
+    "src": "src/lib/images/Aldo.jpg"
+  },
+  "src/lib/images/Gonzalo.jpg": {
+    "file": "_app/immutable/assets/Gonzalo.flsEx35G.jpg",
+    "src": "src/lib/images/Gonzalo.jpg"
+  },
+  "src/lib/images/Laura.jpg": {
+    "file": "_app/immutable/assets/Laura.7yKGbheT.jpg",
+    "src": "src/lib/images/Laura.jpg"
+  },
+  "src/lib/images/Luisina.jpg": {
+    "file": "_app/immutable/assets/Luisina.96bAeSPr.jpg",
+    "src": "src/lib/images/Luisina.jpg"
+  },
+  "src/lib/images/Rocio.jpg": {
+    "file": "_app/immutable/assets/Rocio.3sO5d3vR.jpg",
+    "src": "src/lib/images/Rocio.jpg"
+  },
+  "src/lib/images/calendarImg.png": {
+    "file": "_app/immutable/assets/calendarImg.2F_2BnWI.png",
+    "src": "src/lib/images/calendarImg.png"
+  },
+  "src/lib/images/github.png": {
+    "file": "_app/immutable/assets/github.7dxZzjQB.png",
+    "src": "src/lib/images/github.png"
+  },
+  "src/lib/images/linkedin.png": {
+    "file": "_app/immutable/assets/linkedin.GQwuL13D.png",
+    "src": "src/lib/images/linkedin.png"
+  },
+  "src/lib/images/mail.png": {
+    "file": "_app/immutable/assets/mail.dldIPj2y.png",
+    "src": "src/lib/images/mail.png"
+  },
+  "src/lib/images/men.png": {
+    "file": "_app/immutable/assets/men.ILPFe5Fc.png",
+    "src": "src/lib/images/men.png"
+  },
+  "src/lib/images/womenCollab.png": {
+    "file": "_app/immutable/assets/womenCollab.Yxkt3Rh4.png",
+    "src": "src/lib/images/womenCollab.png"
+  },
+  "src/routes/+layout.svelte": {
+    "css": [
+      "_app/immutable/assets/entries/pages/_layout.8-o5U0LO.css"
+    ],
+    "file": "entries/pages/_layout.svelte.js",
+    "imports": [
+      "_ssr.js"
+    ],
+    "isEntry": true,
+    "src": "src/routes/+layout.svelte"
+  },
+  "src/routes/+page.svelte": {
+    "assets": [
+      "_app/immutable/assets/calendarImg.2F_2BnWI.png",
+      "_app/immutable/assets/men.ILPFe5Fc.png",
+      "_app/immutable/assets/womenCollab.Yxkt3Rh4.png",
+      "_app/immutable/assets/Laura.7yKGbheT.jpg",
+      "_app/immutable/assets/Aldo.pQtZHsqn.jpg",
+      "_app/immutable/assets/Luisina.96bAeSPr.jpg",
+      "_app/immutable/assets/Gonzalo.flsEx35G.jpg",
+      "_app/immutable/assets/Rocio.3sO5d3vR.jpg",
+      "_app/immutable/assets/linkedin.GQwuL13D.png",
+      "_app/immutable/assets/mail.dldIPj2y.png",
+      "_app/immutable/assets/github.7dxZzjQB.png"
+    ],
+    "css": [
+      "_app/immutable/assets/entries/pages/_page.EwNhJwA5.css"
+    ],
+    "file": "entries/pages/_page.svelte.js",
+    "imports": [
+      "_ssr.js"
+    ],
+    "isEntry": true,
+    "src": "src/routes/+page.svelte"
+  }
+}
