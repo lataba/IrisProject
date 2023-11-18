@@ -8,9 +8,7 @@ COPY ./package-lock.json /app/Frontend
 
 #COPY . /app/Frontend/
 
-RUN npm install ci
-RUN npm install daisyui tailwindcss
-RUN npm install @event-calendar/core
-RUN npm install @event-calendar/time-grid
+RUN npm ci --force
+RUN npm install daisyui tailwindcss --force
 
 EXPOSE 3000
