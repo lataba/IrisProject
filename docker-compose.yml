@@ -1,9 +1,8 @@
 version: '3.9'
-
 services:
   backend:
     build:
-      context: backend
+      context: Backend
     command:
       - gunicorn
       - "Iris.wsgi:application"
@@ -13,25 +12,20 @@ services:
       - "2"
     depends_on:
       - db
-
   frontend:
     build:
-      context: frontend
+      context: Frontend
 # O el comando específico para iniciar el servidor de desarrollo de SvelteKit
     command: node index.js
-    depends_on:
-      - nginx
-
   db:
     image: postgres:latest
     environment:
       - POSTGRES_DB=irisdb
       - POSTGRES_USER=iris
       - POSTGRES_PASSWORD=irispassword
-
   nginx:
     image: nginx:latest
     ports:
       - "80:80"
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
